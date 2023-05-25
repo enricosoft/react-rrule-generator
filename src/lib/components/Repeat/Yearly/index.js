@@ -67,6 +67,7 @@ const RepeatYearly = ({
 RepeatYearly.propTypes = {
   id: PropTypes.string.isRequired,
   yearly: PropTypes.shape({
+    interval: PropTypes.number.isRequired,
     mode: PropTypes.oneOf(['on', 'on the']).isRequired,
     on: PropTypes.object.isRequired,
     onThe: PropTypes.object.isRequired,

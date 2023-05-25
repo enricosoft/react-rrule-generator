@@ -26,6 +26,7 @@ const configureState = (config = {}, calendarComponent, id) => {
       frequency: configureFrequency(),
       yearly: {
         mode: configureYearly(),
+        interval: 1,
         on: {
           month: 'Jan',
           day: 1,

@@ -12,6 +12,7 @@ import computeYearlyOnTheMonthday from './computeYearlyOnTheMonthday';
 import computeYearlyOnTheWhich from './computeYearlyOnTheWhich';
 import computeMonthlyMode from './computeMonthlyMode';
 import computeMonthlyInterval from './computeMonthlyInterval';
+import computeYearlyInterval from './computeYearlyInterval';
 import computeMonthlyOnDay from './computeMonthlyOnDay';
 import computeMonthlyOnTheDay from './computeMonthlyOnTheDay';
 import computeMonthlyOnTheWhich from './computeMonthlyOnTheWhich';
@@ -51,6 +52,7 @@ const computeRRule = (data, rrule) => {
         yearly: {
           ...data.repeat.yearly,
           mode: computeYearlyMode(data, rruleObj),
+          interval: computeYearlyInterval(data, rruleObj),
           on: {
             month: computeYearlyOnMonth(data, rruleObj),
             day: computeYearlyOnMonthday(data, rruleObj),
