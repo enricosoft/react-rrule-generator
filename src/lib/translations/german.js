@@ -51,6 +51,8 @@ export default {
     label: 'Wiederholen',
     yearly: {
       label: 'Jährlich',
+      every: 'Every',
+      years: 'year(s)',
       on: 'am',
       on_the: 'an dem',
       of: 'von',

@@ -1,4 +1,4 @@
-import RRule from 'rrule';
+import {RRule} from 'rrule';
 
 import computeMonthlyOn from './computeMonthlyOn';
 import computeMonthlyOnThe from './computeMonthlyOnThe';

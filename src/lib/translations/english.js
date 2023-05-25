@@ -51,6 +51,8 @@ export default {
     label: 'Repeat',
     yearly: {
       label: 'Yearly',
+      every: 'Every',
+      years: 'year(s)',
       on: 'on',
       on_the: 'on the',
       of: 'of',

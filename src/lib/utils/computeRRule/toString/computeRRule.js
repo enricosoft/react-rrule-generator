@@ -1,4 +1,4 @@
-import RRule from 'rrule';
+import {RRule} from 'rrule';
 
 import computeStart from './computeStart';
 import computeRepeat from './computeRepeat';

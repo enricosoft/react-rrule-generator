@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RepeatYearlyOn from './On';
 import RepeatYearlyOnThe from './OnThe';
+import translateLabel from '../../../utils/translateLabel';
+import numericalFieldHandler from '../../../utils/numericalFieldHandler';
 
 const RepeatYearly = ({
   id,
   yearly: {
     mode,
+    interval,
     on,
     onThe,
     options,
@@ -18,6 +21,26 @@ const RepeatYearly = ({
   const isOptionAvailable = option => !options.modes || isTheOnlyOneMode(option);
   return (
     <div>
+
+      <div className="form-group row d-flex align-items-sm-center">
+        <div className="col-sm-1 offset-sm-2">
+          {translateLabel(translations, 'repeat.yearly.every')}
+        </div>
+        <div className="col-sm-3">
+          <input
+            id={`${id}-interval`}
+            name="repeat.yearly.interval"
+            aria-label="Repeat yearly interval"
+            className="form-control"
+            value={interval}
+            onChange={numericalFieldHandler(handleChange)}
+          />
+        </div>
+        <div className="col-sm-1">
+          {translateLabel(translations, 'repeat.yearly.years')}
+        </div>
+      </div>
+
       {isOptionAvailable('on') && (
         <RepeatYearlyOn
           id={`${id}-on`}

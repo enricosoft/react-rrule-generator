@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import TextareaAutosize from 'react-autosize-textarea';
 
-import ReactRRuleGenerator, { translations } from '../lib';
+import ReactRRuleGenerator, { translations } from './lib/index';
 import './index.css';
-import githubLogo from './github_logo.png';
 
 class App extends Component {
   state = {
@@ -35,13 +34,7 @@ class App extends Component {
     return (
       <div>
         <div className="app-navbar">
-          <a href="https://github.com/fafruch/react-rrule-generator">
-            &lt; go back to
-            {' '}
-            <img className="app-navbar-ghlogo" src={githubLogo} alt="Github logo" />
-            /fafruch
-          </a>
-
+          
           <iframe
             title="github-star"
             src="https://ghbtns.com/github-btn.html?user=fafruch&repo=react-rrule-generator&type=star&count=true&size=medium"
