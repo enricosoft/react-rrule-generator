@@ -12,7 +12,16 @@ class App extends Component {
     language: 'en',
   };
 
-  getTranslation = () => (this.state.language === 'de') ? translations.german : undefined;
+  getTranslation = () => {
+    switch(this.state.language){
+      case 'de':
+        return translations.german;
+      case 'it':
+        return translations.italian;
+      default:
+        return undefined;
+    }    
+  }
 
   handleChangeLanguage = (event) => {
     event.persist();
@@ -32,18 +41,7 @@ class App extends Component {
     const { rrule, isCopied } = this.state;
 
     return (
-      <div>
-        <div className="app-navbar">
-          
-          <iframe
-            title="github-star"
-            src="https://ghbtns.com/github-btn.html?user=fafruch&repo=react-rrule-generator&type=star&count=true&size=medium"
-            frameBorder="0"
-            scrolling="0"
-            width="78px"
-            height="20px"
-          />
-        </div>
+      <div>        
         <div className="app-header">
           <h1>React RRule Generator</h1>
         </div>
@@ -125,6 +123,7 @@ class App extends Component {
                 <select className="form-control" value={this.state.language} onChange={this.handleChangeLanguage}>
                   <option value="en">English</option>
                   <option value="de">German</option>
+                  <option value="it">Italian</option>
                 </select>
               </div>
             </div>
