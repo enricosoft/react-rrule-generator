@@ -11,7 +11,7 @@ class App extends Component {
     humanReadableText: '',
     nextDates: [],    
     isCopied: false,
-    language: 'en',
+    language: 'it',
   };
 
   getTranslation = () => {
@@ -74,7 +74,7 @@ class App extends Component {
             onChange={this.handleChange}
             value={this.state.rrule}
             config={{
-              hideStart: false,
+              hideStart: true
             }}
             translations={this.getTranslation()}
           />
