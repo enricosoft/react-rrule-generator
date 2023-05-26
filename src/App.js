@@ -8,21 +8,23 @@ import './index.css';
 class App extends Component {
   state = {
     rrule: 'DTSTART:20190301T230000Z\nFREQ=YEARLY;BYMONTH=1;BYMONTHDAY=1',
+    humanReadableText: '',
+    nextDates: [],    
     isCopied: false,
     language: 'en',
   };
 
   getTranslation = () => {
-    switch(this.state.language){
+    switch (this.state.language) {
       case 'de':
         return translations.german;
 
       case 'it':
         return translations.italian;
-        
+
       default:
         return undefined;
-    }    
+    }
   }
 
   handleChangeLanguage = (event) => {
@@ -31,8 +33,21 @@ class App extends Component {
     this.setState({ language: newLanguage });
   };
 
-  handleChange = (newRRule) => {
-    this.setState({ rrule: newRRule, isCopied: false });
+  handleChange = (newRRuleObj) => {
+
+    var allDatesStr = [];
+    var allDates = newRRuleObj.all();
+    var maxCount = allDates.length > 4 ? 4 : allDates.length;
+    for(var i=0; i<maxCount;i++){      
+      allDatesStr.push(new Date(allDates[i]).toDateString());
+    }
+
+    this.setState({
+      rrule: newRRuleObj.toString(),
+      humanReadableText: newRRuleObj.toText(),
+      nextDates: allDatesStr,
+      isCopied: false
+    });
   };
 
   handleCopy = () => {
@@ -40,10 +55,10 @@ class App extends Component {
   };
 
   render() {
-    const { rrule, isCopied } = this.state;
+    const { rrule, humanReadableText, nextDates, isCopied } = this.state;
 
     return (
-      <div>        
+      <div>
         <div className="app-header">
           <h1>React RRule Generator</h1>
         </div>
@@ -104,6 +119,43 @@ class App extends Component {
               </div>
 
             </div>
+
+            <hr/>
+
+            <div className='row d-flex align-items-sm-center'>
+              <div className="col-sm-2 text-sm-right">
+                <span className="col-form-label">
+                  <strong>
+                    Text
+                  </strong>
+                </span>
+              </div>
+
+              <div className="col-sm-8">
+                {humanReadableText}
+              </div>
+            </div>
+
+            <hr/>
+
+            <div className='row d-flex align-items-sm-center'>
+              <div className="col-sm-2 text-sm-right">
+                <span className="col-form-label">
+                  <strong>
+                    Next trigger dates
+                  </strong>
+                </span>
+              </div>
+
+              <div className="col-sm-8">  
+                <ul>
+                  {nextDates.map(function(d) {
+                    return <li>{d}</li>
+                  })}                  
+                </ul>                                  
+              </div>
+            </div>
+
           </div>
         </div>
 

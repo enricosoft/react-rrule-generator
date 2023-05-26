@@ -5,7 +5,7 @@ import { cloneDeep, set } from 'lodash';
 import Start from './Start/index';
 import Repeat from './Repeat/index';
 import End from './End/index';
-import computeRRuleToString from '../utils/computeRRule/toString/computeRRule';
+import computeRRule from '../utils/computeRRule/toString/computeRRule';
 import computeRRuleFromString from '../utils/computeRRule/fromString/computeRRule';
 import configureInitialState from '../utils/configureInitialState';
 import translateLabel from '../utils/translateLabel';
@@ -57,8 +57,9 @@ class ReactRRuleGenerator extends PureComponent {
     */              
     this.setState({ data: set(this.state.data, target.name, target.value) });
 
-    const rrule = computeRRuleToString(this.state.data);
+    const rrule = computeRRule(this.state.data);
     this.props.onChange(rrule);
+      
   };
 
   render() {

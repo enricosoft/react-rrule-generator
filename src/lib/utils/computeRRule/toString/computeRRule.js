@@ -18,7 +18,7 @@ const computeRRule = ({
     ...computeOptions(options),
   };
   const rrule = new RRule(rruleObject);
-  return rrule.toString();
+  return rrule;
 };
 
 export default computeRRule;
