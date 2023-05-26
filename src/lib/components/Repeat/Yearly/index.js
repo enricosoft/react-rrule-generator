@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RepeatYearlyOn from './On';
 import RepeatYearlyOnThe from './OnThe';
-import translateLabel from '../../../utils/translateLabel';
 import numericalFieldHandler from '../../../utils/numericalFieldHandler';
+import translateLabel from '../../../utils/translateLabel';
 
 const RepeatYearly = ({
   id,

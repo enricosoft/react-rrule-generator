@@ -16,8 +16,10 @@ class App extends Component {
     switch(this.state.language){
       case 'de':
         return translations.german;
+
       case 'it':
         return translations.italian;
+        
       default:
         return undefined;
     }    

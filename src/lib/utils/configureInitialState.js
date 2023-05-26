@@ -37,7 +37,7 @@ const configureState = (config = {}, calendarComponent, id) => {
           which: 'First',
         },
         options: {
-          modes: config.yearly,
+          modes: config.yearly
         },
       },
       monthly: {
@@ -51,7 +51,7 @@ const configureState = (config = {}, calendarComponent, id) => {
           which: 'First',
         },
         options: {
-          modes: config.monthly,
+          modes: config.monthly
         },
       },
       weekly: {
@@ -70,13 +70,13 @@ const configureState = (config = {}, calendarComponent, id) => {
         },
       },
       daily: {
-        interval: 1,
+        interval: 1
       },
       hourly: {
-        interval: 1,
+        interval: 1
       },
       options: {
-        frequency: config.repeat,
+        frequency: config.repeat
       },
     },
     end: {
