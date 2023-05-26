@@ -1,12 +1,6 @@
 # React RRule Generator
 > Recurrence rules generator form built with React
 
-[![LICENSE](https://img.shields.io/npm/l/express.svg)](LICENSE)
-[![npm](https://img.shields.io/npm/dm/localeval.svg)](https://npm-stat.com/charts.html?package=react-rrule-generator)
-
-### This project is no longer maintained by me. Thank you for all your past contributions. Let the forks rock it for you.
-
-
 ![Screenshot](https://i.imgur.com/FU3aGlz.png)
 
 ## Description
@@ -18,18 +12,12 @@ It also uses:
 * [moment](https://github.com/moment/moment)
 * [react-datetime](https://github.com/YouCanBookMe/react-datetime)
 
-## Demo
-https://fafruch.github.io/react-rrule-generator
-
-## Installation
-
-`npm install --save react-rrule-generator`
 
 ## Usage 
 
 In your CSS index file don't forget to import styles:
 ```css
-@import '~bootstrap/dist/css/bootstrap.css';       // this lib uses boostrap (v. 4.0.0-beta.2)
+@import '~bootstrap/dist/css/bootstrap.css';
 @import '~react-rrule-generator/build/styles.css'; // react-rrule-generator's custom CSS
 ```
 
@@ -42,7 +30,7 @@ import RRuleGenerator from 'react-rrule-generator';
 // render it as it is
 
 const SimpleRender = () => (
-  <RRuleGenerator onChange={(rrule) => console.log(`RRule changed, now it's ${rrule}`)} />
+  <RRuleGenerator onChange={(rrule) => console.log(`RRule changed, now it's ${rrule.toText()}`)} />
 );
 
 
@@ -52,7 +40,7 @@ import MyCustomCalendar from './MyCustomCalendar';
 
 const CustomizedRender = () => (
   <RRuleGenerator
-    onChange={(rrule) => console.log(`RRule changed, now it's ${rrule}`)}
+    onChange={(rrule) => console.log(`RRule changed, now it's ${rrule.toText()}`)}
     config={{
       repeat: ['Monthly', 'Weekly'],
       yearly: 'on the',
@@ -76,7 +64,7 @@ class ControlledRender extends Component {
   render() {
     return (
       <RRuleGenerator
-        onChange={(rrule) => this.setState({ rrule })}
+        onChange={(rrule) => this.setState({ rrule.toString() })}
         value={this.state.rrule}
       />
     );
