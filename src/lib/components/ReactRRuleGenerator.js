@@ -17,7 +17,7 @@ class ReactRRuleGenerator extends PureComponent {
   state = configureInitialState(
     this.props.config,
     this.props.calendarComponent,
-    this.props.id,
+    this.props.id
   );
 
   componentWillMount() {
@@ -42,11 +42,22 @@ class ReactRRuleGenerator extends PureComponent {
   }
 
   handleChange = ({ target }) => {
+    /*
     const newData = cloneDeep(this.state.data);
+    console.log('---------------------');
+    console.log('CHANGED FIELD', target.name);
+    console.log('ORIG', newData);
     set(newData, target.name, target.value);
-    const rrule = computeRRuleToString(newData);
-
+    console.log('MODIFIED', newData);
     this.setState({ data: newData });
+    setTimeout(() => {
+      console.log('NEW', this.state.data);
+      console.log('---------------------');
+    }); 
+    */              
+    this.setState({ data: set(this.state.data, target.name, target.value) });
+
+    const rrule = computeRRuleToString(this.state.data);
     this.props.onChange(rrule);
   };
 
