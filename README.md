@@ -13,6 +13,23 @@ It also uses:
 * [react-datetime](https://github.com/YouCanBookMe/react-datetime)
 
 
+## Commands
+
+npm install --force
+
+TO DEVELOP:
+```
+npm run start
+```
+
+
+TO PACK:
+```
+npm run pre_pack
+npm run npm_pack
+```
+
+
 ## Usage 
 
 In your CSS index file don't forget to import styles:
