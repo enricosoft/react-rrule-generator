@@ -74,7 +74,7 @@ class App extends Component {
             onChange={this.handleChange}
             value={this.state.rrule}
             config={{
-              hideStart: true
+              hideStart: false
             }}
             translations={this.getTranslation()}
           />
