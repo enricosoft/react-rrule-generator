@@ -1,5 +1,5 @@
-# React RRule Generator
-> Recurrence rules generator form built with React
+# React RRule Generator Enricosoft
+> Recurrence rules generator form built with React by Enricosoft
 
 ![Screenshot](https://i.imgur.com/FU3aGlz.png)
 
@@ -23,7 +23,7 @@ npm run start
 ```
 
 
-TO PACK:
+TO NPM PACK:
 ```
 npm run pre_pack
 npm run npm_pack
@@ -34,15 +34,15 @@ npm run npm_pack
 
 In your CSS index file don't forget to import styles:
 ```css
-@import '~bootstrap/dist/css/bootstrap.css';
-@import '~react-rrule-generator/build/styles.css'; // react-rrule-generator's custom CSS
+@import '~bootstrap/dist/css/bootstrap.css'; // Requirement
+@import '~react-rrule-generator-enricosoft/build/styles.css'; // react-rrule-generator's custom CSS
 ```
 
 Then you're good to go.   
 Just use it:
 
 ```js
-import RRuleGenerator from 'react-rrule-generator';
+import RRuleGenerator, { translations } from 'react-rrule-generator-enricosoft';
 
 // render it as it is
 
@@ -58,6 +58,7 @@ import MyCustomCalendar from './MyCustomCalendar';
 const CustomizedRender = () => (
   <RRuleGenerator
     onChange={(rrule) => console.log(`RRule changed, now it's ${rrule.toText()}`)}
+    value={this.state.rrule}
     config={{
       repeat: ['Monthly', 'Weekly'],
       yearly: 'on the',
@@ -65,7 +66,9 @@ const CustomizedRender = () => (
       end: ['Never', 'On date'],
       weekStartsOnSunday: true,
       hideError: true,
+      hideStart: false
     }}
+    translations={this.getTranslation()}
     customCalendar={MyCustomCalendar}
   />
 );
